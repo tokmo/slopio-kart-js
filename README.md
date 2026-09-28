@@ -10,8 +10,8 @@ Un jeu de kart 3D façon N64, 100 % web (Three.js, aucun build).
 ## Lancer
 
 ```sh
-python3 -m http.server 8000   # ou n'importe quel serveur statique
-# puis ouvrir http://localhost:8000
+npm install
+npm start   # sert le jeu sur http://localhost:8000 et ouvre le navigateur
 ```
 
 `?auto` dans l'URL : le joueur est piloté par l'IA (démo).
