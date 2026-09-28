@@ -1,0 +1,32 @@
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:"Arial Black",Impact,sans-serif;color:#fff;user-select:none;touch-action:none}
+#view{position:fixed;inset:0;width:100%;height:100%;image-rendering:pixelated;image-rendering:crisp-edges;background:#000}
+.hidden{display:none!important}
+#hud{position:fixed;inset:0;pointer-events:none;font-style:italic;text-shadow:3px 3px 0 #000,-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000}
+#pos{position:absolute;left:3vmin;bottom:3vmin;font-size:14vmin;color:#ffe23a;line-height:1}
+#pos sup{font-size:6vmin;margin-left:.5vmin}
+#lap{position:absolute;right:3vmin;top:3vmin;font-size:5vmin;color:#5cf}
+#time{position:absolute;right:3vmin;top:9.5vmin;font-size:3.6vmin}
+#itembox{position:absolute;left:3vmin;top:3vmin;width:13vmin;height:13vmin;border:.7vmin solid #fff;border-radius:2vmin;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;font-size:8vmin;text-shadow:none}
+#minimap{position:absolute;right:2vmin;bottom:9vmin;width:22vmin;height:22vmin;opacity:.9}
+#speed{position:absolute;right:3vmin;bottom:3vmin;font-size:3.4vmin}
+#speed b{font-size:6vmin}
+#banner{position:absolute;left:0;right:0;top:32%;text-align:center;font-size:20vmin;color:#ffe23a;white-space:nowrap}
+.screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:rgba(10,10,40,.35);z-index:5;text-shadow:4px 4px 0 #000}
+.screen h1{font-size:15vmin;font-style:italic;line-height:.95;color:#ffe23a;-webkit-text-stroke:.6vmin #c1121f;letter-spacing:.5vmin;transform:skew(-6deg)}
+.screen h1 span{color:#fff;-webkit-text-stroke:.6vmin #1d4ed8}
+.screen p{font-size:3.6vmin;margin:5vmin 0 3vmin}
+.help{font:600 2vmin/1.9 Arial,sans-serif;background:rgba(0,0,0,.55);padding:2vmin 3vmin;border-radius:1.5vmin;text-shadow:none}
+.help b{color:#ffe23a}
+.blink{animation:bl 1s steps(2) infinite}
+@keyframes bl{50%{opacity:0}}
+#results h2{font-size:9vmin;color:#ffe23a;font-style:italic;margin-bottom:2vmin}
+#results table{font-size:3.4vmin;border-collapse:collapse;min-width:44vmin;background:rgba(0,0,0,.55)}
+#results td{padding:.8vmin 2vmin;text-align:left}
+#results tr.me{color:#ffe23a}
+#touch button{position:fixed;bottom:3vmin;width:16vmin;height:16vmin;border-radius:50%;border:.5vmin solid #fff;background:rgba(0,0,0,.4);color:#fff;font:900 3vmin Arial;pointer-events:auto;touch-action:none}
+#touch .tl button:nth-child(1){left:3vmin}
+#touch .tl button:nth-child(2){left:21vmin}
+#touch .tr button:nth-child(1){right:3vmin;bottom:22vmin}
+#touch .tr button:nth-child(2){right:3vmin}
+#touch .tr button:nth-child(3){right:21vmin}

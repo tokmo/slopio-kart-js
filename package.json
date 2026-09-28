@@ -1,0 +1,23 @@
+{
+  "name": "slopio-kart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tokmo/slopio-kart-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tokmo/slopio-kart-js/issues"
+  },
+  "homepage": "https://github.com/tokmo/slopio-kart-js#readme",
+  "dependencies": {
+    "three": "^0.170.0"
+  }
+}

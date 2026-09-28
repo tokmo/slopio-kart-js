@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Slopio Kart 64</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="view"></canvas>
+
+<div id="hud" class="hidden">
+  <div id="pos">1<sup>st</sup></div>
+  <div id="lap">LAP 1/3</div>
+  <div id="time">0:00.00</div>
+  <div id="itembox"><span id="item"></span></div>
+  <canvas id="minimap" width="140" height="140"></canvas>
+  <div id="speed"><b id="kmh">0</b> km/h</div>
+  <div id="banner"></div>
+</div>
+
+<div id="menu" class="screen">
+  <h1>SLOPIO<br><span>KART 64</span></h1>
+  <p class="blink">Appuie sur ENTRÉE ou touche l'écran</p>
+  <div class="help">
+    <b>↑ / W</b> accélérer &nbsp; <b>↓ / S</b> freiner &nbsp; <b>← → / A D</b> tourner<br>
+    <b>ESPACE / SHIFT</b> déraper (relâche pour un turbo) &nbsp; <b>E / CTRL</b> objet<br>
+    <b>R</b> recommencer &nbsp; <b>M</b> son on/off
+  </div>
+</div>
+
+<div id="results" class="screen hidden"></div>
+
+<div id="touch" class="hidden">
+  <div class="tl"><button data-k="left">◀</button><button data-k="right">▶</button></div>
+  <div class="tr"><button data-k="item">🍄</button><button data-k="drift">DRIFT</button><button data-k="brake">▼</button></div>
+</div>
+
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
