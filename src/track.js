@@ -187,6 +187,8 @@ export class Track {
     while (n < COUNT && tries++ < 20000) {
       const x = (Math.random() - 0.5) * 900 + 40, z = (Math.random() - 0.5) * 900 + 160;
       let ok = true;
+      const sp = this.pts[this.N - 14];
+      if ((sp.x - x) ** 2 + (sp.z - z) ** 2 < 70 * 70) continue;
       for (let i = 0; i < this.N; i += 2) {
         const p = this.pts[i];
         if ((p.x - x) ** 2 + (p.z - z) ** 2 < 32 * 32) { ok = false; break; }

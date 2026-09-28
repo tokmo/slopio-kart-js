@@ -41,6 +41,32 @@ export class Sound {
   pickup() { this.beep(660, 0.08); this.beep(880, 0.12, 'square', 1, 0.25, 0.08); }
   item() { this.beep(500, 0.1, 'triangle'); }
   bump() { this.beep(120, 0.1, 'square', 0.5, 0.2); }
+  boom() { this.noise(0.6, 300, 0.5, 40); this.beep(90, 0.5, 'sawtooth', 0.3, 0.4); }
+  moo(v = 1) { this.beep(150, 0.7, 'sawtooth', 0.6, 0.2 * v); this.beep(120, 0.6, 'square', 0.7, 0.08 * v, 0.05); }
+  jump() { this.beep(300, 0.35, 'square', 3, 0.2); }
+  star() { [523, 659, 784, 1046, 784, 1046].forEach((f, i) => this.beep(f, 0.11, 'square', 1, 0.2, i * 0.08)); }
+  honk() { this.beep(311, 0.3, 'square', 1, 0.3); this.beep(415, 0.3, 'square', 1, 0.3); }
+  noise(dur = 0.3, freq = 1000, vol = 0.3, lp = 0) {
+    if (!this.ctx) return;
+    const n = this.ctx.sampleRate * dur, buf = this.ctx.createBuffer(1, n, this.ctx.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / n);
+    const s = this.ctx.createBufferSource(); s.buffer = buf;
+    const f = this.ctx.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = freq;
+    const g = this.ctx.createGain(); g.gain.value = vol;
+    s.connect(f); f.connect(g); g.connect(this.master); s.start();
+  }
+  screech(on) {
+    if (!this.ctx) return;
+    if (!this.scr) {
+      const n = this.ctx.sampleRate * 1, buf = this.ctx.createBuffer(1, n, this.ctx.sampleRate), d = buf.getChannelData(0);
+      for (let i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
+      const s = this.ctx.createBufferSource(); s.buffer = buf; s.loop = true;
+      const f = this.ctx.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = 2200; f.Q.value = 3;
+      this.scr = this.ctx.createGain(); this.scr.gain.value = 0;
+      s.connect(f); f.connect(this.scr); this.scr.connect(this.master); s.start();
+    }
+    this.scr.gain.setTargetAtTime(on ? 0.07 : 0, this.ctx.currentTime, 0.05);
+  }
   lap() { [523, 659, 784].forEach((f, i) => this.beep(f, 0.15, 'square', 1, 0.25, i * 0.12)); }
 
   startMusic() {
